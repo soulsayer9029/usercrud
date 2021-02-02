@@ -49,7 +49,7 @@ const register=async(req,res)=>{
         if(error){
             console.log(error)
         }else{
-            console.log('Email sent' + info.response)
+            console.log('Email ' + info.response)
         }
     })
 }
@@ -70,6 +70,6 @@ const login=async(req,res)=>{
     }
     const token=jwt.sign({_id:user._id},process.env.TOKEN_SECRET)
     res.header('auth-token',token).send(token)
-    // res.send("logged in succesfully")
+    
 }
 module.exports={register,login}
