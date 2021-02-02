@@ -65,7 +65,7 @@ const contactForm=async(req,res)=>{
     const message=req.body.message
     transporter.sendMail({
         from:'nodeforme@gmail.com',
-        to:'',
+        to:'dhruvjain9029@gmail.com',
         subject:'Query',
         text:req.body.message
     },(error,info)=>{
