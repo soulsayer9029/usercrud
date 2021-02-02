@@ -14,7 +14,9 @@ app.use('/api/users',authRoutes)
 const port=process.env.PORT || 3000
 
 
-
+app.get('/',(req,res)=>{
+    res.send('<h1>Noice</h1>')
+})
 
 
 mongoose.connect(process.env.CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
