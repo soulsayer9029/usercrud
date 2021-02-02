@@ -40,18 +40,7 @@ const register=async(req,res)=>{
     }catch(error){
         res.status(400).json({error:error.message})
     }
-    transporter.sendMail({
-        from:'nodeforme@gmail.com',
-        to:req.body.email,
-        subject:'Registration',
-        text:'Thank you for registering with us.Your account has been created'
-    },(error,info)=>{
-        if(error){
-            console.log(error)
-        }else{
-            console.log('Email ' + info.response)
-        }
-    })
+   
 }
 const login=async(req,res)=>{
     //input validation
@@ -72,4 +61,19 @@ const login=async(req,res)=>{
     res.header('auth-token',token).send(token)
     
 }
-module.exports={register,login}
+const contactForm=async(req,res)=>{
+    const message=req.body.message
+    transporter.sendMail({
+        from:'nodeforme@gmail.com',
+        to:'',
+        subject:'Query',
+        text:req.body.message
+    },(error,info)=>{
+        if(error){
+            res.status(400).send(error)
+        }else{
+           res.status(200).send("mail sent")
+        }
+    })
+}
+module.exports={register,login,contactForm}
