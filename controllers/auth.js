@@ -41,7 +41,7 @@ const register=async(req,res)=>{
         res.status(400).json({error:error.message})
     }
     transporter.sendMail({
-        from:'dhruvjain9029@gmail.com',
+        from:'nodeforme@gmail.com',
         to:req.body.email,
         subject:'Registration',
         text:'Thank you for registering with us.Your account has been created'
