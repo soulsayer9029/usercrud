@@ -65,9 +65,9 @@ const contactForm=async(req,res)=>{
     const message=req.body.message
     transporter.sendMail({
         from:'nodeforme@gmail.com',
-        to:'myknot.gaming@gmail.com',
+        to:'dhruvjain9029@gmail.com',
         subject:'Query',
-        text:req.body.message
+        text:`${req.body.email} has asked a question regarding ${req.body.message} whose mobile number is ${req.body.mobile} and has selcted service ${req.body.service} `
     },(error,info)=>{
         if(error){
             res.status(400).send(error)
