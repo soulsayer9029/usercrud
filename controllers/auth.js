@@ -65,7 +65,7 @@ const contactForm=async(req,res)=>{
     const message=req.body.message
     transporter.sendMail({
         from:'nodeforme@gmail.com',
-        to:'dhruvjain9029@gmail.com',
+        to:'sales@myknot.online',
         subject:'Query',
         text:req.body.message
     },(error,info)=>{
