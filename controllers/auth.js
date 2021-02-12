@@ -57,8 +57,14 @@ const login=async(req,res)=>{
     if(!validPassword){
         return res.status(400).send("Invalid Credentials")
     }
-    const token=await jwt.sign({_id:user._id},process.env.TOKEN_SECRET)
-    res.header('auth-token',token).send(token)
+    try{
+        const token=jwt.sign({_id:user._id},process.env.TOKEN_SECRET);
+        res.header('auth-token',token).send(token);
+    }catch(error){
+        res.status(400).send("login failed");
+    }
+   
+   
     
 }
 const contactForm=async(req,res)=>{
