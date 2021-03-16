@@ -6,7 +6,7 @@ const verifyToken=(req,res,next)=>{
         return res.status(404).send("access denied")
     }
     try{
-        const verified=jwt.verify(token,TOKEN_SECRET)
+        const verified=jwt.verify(token,process.env.TOKEN_SECRET)
         req.user=verified
         next()
     }catch(err){
